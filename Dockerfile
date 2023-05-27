@@ -26,4 +26,4 @@ USER steam
 EXPOSE 27015 27015/udp
 
 # Start server
-RUN ./steamcmd.sh +login ${STEAM_USERNAME} ${STEAM_PASSWORD} +force_install_dir ./berryworld +app_update 871990 validate +quit
+RUN ./steamcmd.sh +login ${STEAM_USERNAME} ${STEAM_PASSWORD} ${STEAM_GUARD_CODE} +force_install_dir ./berryworld +app_update 871990 validate +quit
