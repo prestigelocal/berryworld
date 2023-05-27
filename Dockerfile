@@ -22,11 +22,8 @@ RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.t
 # Switch to user steam
 USER steam
 
-# SteamCMD install and update game server (Killer Queen Black appid: 871990)
-RUN ./steamcmd.sh +login ${STEAM_USERNAME} ${STEAM_PASSWORD} +force_install_dir ./berryworld +app_update 871990 validate +quit
-
 # Expose necessary ports
 EXPOSE 27015 27015/udp
 
 # Start server
-CMD ["./berryworld/killerqueenblack", "-log"]
+RUN ./steamcmd.sh +login ${STEAM_USERNAME} ${STEAM_PASSWORD} +force_install_dir ./berryworld +app_update 871990 validate +quit
